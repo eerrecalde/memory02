@@ -62,8 +62,8 @@ const uniqueCards = [
 // HTML selectors variables
 const ulElement = document.querySelector('.deck');
 const resetElement = document.querySelector('.restart');
-const resultNode = document.querySelector('.result');
-const resultTextNode = resultNode.querySelector('.result__text');
+const modalNode = document.querySelector('.result');
+const resultTextNode = modalNode.querySelector('.result__text');
 const starsNode = document.querySelector('.score-panel .stars');
 const movesNode = document.querySelector('.moves');
 const timerNode = document.querySelector('.timer');
@@ -117,7 +117,7 @@ function shuffleCards(cards) {
  * @param {String} res
  */
 function displayModal(res) {
-  resultNode.classList.add('show');
+  modalNode.classList.add('show');
   resultTextNode.innerHTML = res;
 }
 
@@ -125,7 +125,7 @@ function displayModal(res) {
  * Hides the result
  */
 function hideResult() {
-  resultNode.classList.remove('show');
+  modalNode.classList.remove('show');
 }
 
 /**
@@ -172,6 +172,9 @@ function resetMoves() {
   movesNode.innerText = moves;
 }
 
+/**
+ * Stops the timer
+ */
 function stopTimer() {
   clearInterval(interval);
 }
@@ -471,7 +474,11 @@ function resetGame() {
 // Initialize the app
 // init();
 
-displayModal('<a class="restart" href="#">Start</a>');
+displayModal(
+  `<small>You have ${
+    config.maxTimeoutMinutes
+  } minutes to resolve it</small><br><a class="restart" href="#">Start</a>`,
+);
 
 // EVENTS LISTENERS
 
@@ -507,7 +514,7 @@ resetElement.addEventListener('click', e => {
 });
 
 // Event listener for click on reset button in result panel
-resultNode.addEventListener('click', e => {
+modalNode.addEventListener('click', e => {
   const btn = e.target;
   e.preventDefault();
 
