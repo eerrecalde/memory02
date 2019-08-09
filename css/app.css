@@ -14,6 +14,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 100%;
 }
 
 body {
@@ -42,22 +43,22 @@ a {
  */
 
 .deck {
-  width: 660px;
-  min-height: 680px;
+  width: 41rem;
+  min-height: 42.5rem;
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-  padding: 32px;
+  padding: 2rem;
   border-radius: 10px;
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 3em;
+  margin: 0 0 3rem;
 }
 
 .deck .card {
-  height: 125px;
-  width: 125px;
+  height: 7.8rem;
+  width: 7.8rem;
   background: #2e3d49;
   font-size: 0;
   color: #ffffff;
@@ -110,6 +111,7 @@ a {
   text-align: left;
   width: 345px;
   margin-bottom: 10px;
+  max-width: 41rem;
 }
 
 .score-panel .stars {
@@ -137,14 +139,14 @@ a {
   display: none;
   position: absolute;
   z-index: 1;
-  top: 168px;
-  width: 660px;
-  min-height: 680px;
+  top: 10.5rem;
+  width: 41rem;
+  min-height: 42.5rem;
   border-radius: 8px;
   font-size: 3rem;
   color: #eee;
   background-color: rgba(0, 0, 0, 0.7);
-  transition: all ease 0.3s;
+  transition: display ease 0.3s;
 }
 
 .result__text {
@@ -152,10 +154,51 @@ a {
   top: 50%;
   width: 100%;
   margin-top: -16%;
-  height: 68px;
   text-align: center;
 }
 
 .result.show {
   display: block;
+}
+
+@media (max-width: 960px) {
+  html {
+    font-size: 80%;
+  }
+  .score-panel,
+  .timer,
+  header {
+    font-size: 100%;
+  }
+  .result {
+    top: 10.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 70%;
+  }
+  .score-panel,
+  .timer,
+  header {
+    font-size: 120%;
+  }
+  .result {
+    top: 12.7rem;
+  }
+}
+
+@media (max-width: 540px) {
+  html {
+    font-size: 46%;
+  }
+  .score-panel,
+  .timer,
+  header {
+    font-size: 140%;
+  }
+  .result {
+    top: 15.2rem;
+  }
 }
