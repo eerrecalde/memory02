@@ -1,0 +1,161 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+  font-family: 'Coda', cursive;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #02b3e4;
+  text-decoration: none;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+.deck .card {
+  height: 125px;
+  width: 125px;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(-180deg);
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  transition: box-shadow ease 0.3s, transform ease-out 0.3s, font-size ease 0s 0s;
+}
+
+/* User cannot click on a freezed card, so we cancel the cursor pointer */
+.deck.freeze .card {
+  cursor: default;
+}
+
+.deck .card:hover {
+  box-shadow: 5px 2px 20px 0 rgba(10, 20, 25, 0.7);
+}
+
+.deck .card.open {
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+  transition: box-shadow ease 0.3s, transform ease-out 0.3s, font-size ease 0s 0.2s;
+}
+
+.deck .card.open:hover,
+.deck.freeze .card:hover {
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.show {
+  font-size: 33px;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: #02ccba;
+  font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+  text-align: left;
+  width: 345px;
+  margin-bottom: 10px;
+}
+
+.score-panel .stars {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+.score-panel .stars li.used {
+  color: #aaa;
+}
+
+.score-panel .restart {
+  float: right;
+  cursor: pointer;
+}
+
+.result {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 168px;
+  width: 660px;
+  min-height: 680px;
+  border-radius: 8px;
+  font-size: 3rem;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all ease 0.3s;
+}
+
+.result__text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin-top: -16%;
+  height: 68px;
+  text-align: center;
+}
+
+.result.show {
+  display: block;
+}
