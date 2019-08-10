@@ -1,20 +1,34 @@
-# Memory Game Project
-
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+# Memory Game
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+- Clone the project from github: `git clone git@github.com:eerrecalde/memory02.git`
+- Run the app by opening the index.html file with a browser 
 
-To get started, open `js/app.js` and start building out the app's functionality
+#### Game parts
+- There are 16 cards, two sets of 8 unique cards
+- Timer to know how long it takes you to resolve the game
+- Rating with stars (explained below)
+- Amount of moves
+- Reset button
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+#### Configure the game
+- `maxTimeoutMinutes` (default 2) the time given to resolve the game
+- `cardsShowTimeout` (default: 1000) the rating stars via the config variable
+- `initialRating` (default: 3) the amount of stars the user starts with
 
-## Contributing
+#### When you loose
+- You loose if you don't get the matching pairs before the timeout
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+#### Winning conditions
+- You win if you match all the card pairs before the timeout runs out
+- Try to get the best rating possible (explained below)
+- The timeout is set in 2 minutes, and can be configured from the config variable
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+#### Rating
+- The more cards you flip the more the rating will be decreased
+- The rating starts decreasing after the 8th card is being flipped 
+and it will continue decreasing for every 4 flips until it reaches 0 (the lowest rating)
+
+#### Moves
+- For every pair of cards is flipped will count as 1 move.

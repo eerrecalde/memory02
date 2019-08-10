@@ -248,6 +248,7 @@ function init() {
   resetMoves();
   generateAndResetRating();
   resetTimer();
+  openedCards = [];
 }
 
 /*
@@ -407,10 +408,18 @@ function cardsMatchAction() {
   addLockedCards(openedCards);
   openedCards = [];
   const countedLocked = countLocked(shuffledCards);
+
+  // Winning condition
   if (countedLocked === shuffledCards.length) {
     stopTimer();
     displayModal(
-      `You won!!<br>This is the time it took you to resolve it: ${time}<br><a class="restart" href="#">Play Again</a>`,
+      `<small>
+        You won!!<br>
+        Time to resolve it: ${time}<br>
+        Moves done: ${moves}<br>
+        Rating: ${rating}/${config.initialRating}<br>
+        <a class="restart" href="#">Play Again</a>
+      </small>`,
     );
   }
 }
