@@ -32,3 +32,12 @@ and it will continue decreasing for every 4 flips until it reaches 0 (the lowest
 
 #### Moves
 - For every pair of cards is flipped will count as 1 move.
+
+## Dependencies
+There are no dependencies needed to run the app
+
+However, in case of needing to test the code style, please run the following npm installation:
+`npm i -D eslint-config-airbnb-base eslint-config-airbnb-base eslint-plugin-import eslint`
+
+#### Test code style
+Run `npm run eslint` to test code style
